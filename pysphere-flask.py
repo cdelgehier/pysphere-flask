@@ -23,7 +23,7 @@ class Server:
 			# monkey-patch SSL module (uncomment if unneeded)
 			#ssl._create_default_https_context = ssl._create_unverified_context
 
-			self.server.connect('hostname', 'user', 'password')
+			self.server.connect('10.4.44.31', 'root', 'password')
 		except Exception as e:
 			return str(e)
 		return False
