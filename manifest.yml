@@ -1,3 +1,6 @@
 applications:
 - name: pysphere-flask
-
+  env:
+    API_ADDRESS: 10.4.44.31
+    USER: root
+    PASSWORD: password

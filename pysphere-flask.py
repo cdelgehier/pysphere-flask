@@ -8,10 +8,10 @@ import ssl
 app = Flask(__name__)
 
 #reserved for CF deployment
-#port = int(os.getenv("VCAP_APP_PORT"))
+port = int(os.getenv("VCAP_APP_PORT"))
 
 #reserved for testing
-port = 8090
+#port = 8090
 
 class Server:
 	def __init__(self):
@@ -23,7 +23,7 @@ class Server:
 			# monkey-patch SSL module (uncomment if unneeded)
 			#ssl._create_default_https_context = ssl._create_unverified_context
 
-			self.server.connect('10.4.44.31', 'root', 'password')
+			self.server.connect(os.getenv("API_ADDRESS"), os.getenv("USER"), os.getenv("PASSWORD"))
 		except Exception as e:
 			return str(e)
 		return False
