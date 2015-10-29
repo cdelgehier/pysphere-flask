@@ -1,7 +1,7 @@
 # pySphere-Flask
 
 
-This is a Flask app that provides a RESTful API wrapper for the pySphere vSphere client API
+This is a Cloud Foundry app that provides a RESTful API to the vSphere client API (via pySphere)
 
 Note, must update API address, user, and password in Server connection class
 
