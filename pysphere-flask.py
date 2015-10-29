@@ -198,6 +198,25 @@ def monitor_resource_pool():
         return json.dumps({'resource_pool_name':pool})
 
 
+
+@app.route( '/api/v1/snapshots/list', methods=['GET', 'POST'])
+def snapshots_list():
+        vm_name = None
+        try:
+                if request.method == 'GET':
+                        vm_name = request.args['vm_name']
+                if request.method == 'POST':
+                        vm_name = request.get_json()['vm_name']
+                con = Server()
+                con.connect()
+                vm = con.server.get_vm_by_name(vm_name)
+                snapshot_list = vm.get_snapshots()
+                con.disconnect()
+        except Exception as e:
+                snapshot_list = e
+        return json.dumps({'snapshot_list':snapshot_list})
+
+
 """
 http://stackoverflow.com/questions/10179033/how-to-recursively-remove-certain-keys-from-a-multi-dimensionaldepth-not-known
 """
