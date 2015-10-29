@@ -3,6 +3,8 @@
 
 This is a Flask app that provides a RESTful API wrapper for the pySphere vSphere client API
 
+Note, must update API address, user, and password in Server connection class
+
 Deploy on LAN:
 <pre>./pysphere-flask.py</pre>
 
